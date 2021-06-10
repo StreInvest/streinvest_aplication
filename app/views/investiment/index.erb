@@ -1,0 +1,63 @@
+<html>
+	<body>
+	<%= link_to "voltar home", root_path %>
+
+		<h1>Listagem de investimento</h1>
+
+		<% @summarys['response'].each do |summary| %>
+		<h2 style="color: #000;">	
+			ID:
+			<%= summary['_id'] %>
+		</h2>
+		<h2 style="color: #000;">
+			nome do investimento: 
+			<%= summary['investment_name'] %>
+		</h2>
+		<h2 style="color: #000;">
+			status:
+			<%= summary['status'] %>
+		</h2>
+		<h2 style="color: #000;">
+			risco:	
+			<%= summary['risk'] %>
+		</h2>
+		<h2 style="color: #000;">
+			categoria:
+			<%= summary['category'] %>
+		</h2>
+		<h2 style="color: #000;">
+			create:	
+			<%= summary['created_at'] %>
+		</h2>
+		<h2 style="color: #000;">	
+			update:
+			<%= summary['updated_at'] %>
+		</h2>
+		<h2 style="color: #000;">
+			nome do consorcio emissor:	
+			<%= summary['consortium']['consortium_name'] %>
+		</h2>
+		<h2 style="color: #000;">
+			dia:	
+			<%= summary['profitability']['day'] %>
+		</h2>
+		<h2 style="color: #000;">
+			mes:	
+			<%= summary['profitability']['month'] %>
+		</h2>
+		<h2 style="color: #000;">
+			ano:	
+			<%= summary['profitability']['year'] %>
+		</h2>
+		<h2 style="color: #000;">
+			score:	
+			<%= summary['profitability']['score'] %>
+		</h2>
+		<h2 style="color: #000;">
+			valor minimo:	
+			<%= summary['profitability']['minimum_value'] %>
+		</h2>
+		<hr/>
+		<% end %>
+	</body>
+</html>

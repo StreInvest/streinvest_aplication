@@ -1,0 +1,2 @@
+module InvestimentHelper
+end
