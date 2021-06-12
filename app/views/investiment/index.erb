@@ -57,6 +57,9 @@
 			valor minimo:	
 			<%= summary['profitability']['minimum_value'] %>
 		</h2>
+
+		<%= link_to "Visualizar", investment_specific_path('invest_id' => summary['_id']) %>
+
 		<hr/>
 		<% end %>
 	</body>
