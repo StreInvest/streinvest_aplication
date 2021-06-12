@@ -1,0 +1,46 @@
+<h1>ola</h1>
+
+
+
+<%= form_with scope: :post, url: '/investiment'   do |form| %>
+
+    <div class="field form-group mb-3">
+      <%= form.text_field :nome, class:"form-control", placeholder:"nome do investimento" %>
+    </div>
+    <div class="field form-group mb-3">
+      <%= form.text_field :status, class:"form-control", placeholder:"Open ou Close" %>
+    </div>
+    <div class="field form-group mb-3">
+      <%= form.text_field :risco, class:"form-control", placeholder:"Moderate, Safe e Severe" %>
+    </div>
+    <div class="field form-group mb-3">
+      <%= form.text_field :categoria, class:"form-control", placeholder:"categoria" %>
+    </div>
+    <div class="field form-group mb-3">
+      <%= form.number_field :dia, class:"form-control", placeholder:"dia" %>
+    </div>
+    <div class="field form-group mb-3">
+      <%= form.number_field :mes, class:"form-control", placeholder:"mes" %>
+    </div>
+    <div class="field form-group mb-3">
+      <%= form.number_field :ano, class:"form-control", placeholder:"ano" %>
+    </div>
+    <div class="field form-group mb-3">
+      <%= form.text_field :score, class:"form-control", placeholder:"porcentagem de rentabilidade" %>
+    </div>
+    <div class="field form-group mb-3">
+      <%= form.number_field :minimo, class:"form-control", placeholder:"valor minimo" %>
+    </div>
+  
+
+    <br />
+    
+    <div class="actions">
+      
+    <%= link_to "ir para investimentos", investiment_index_path %>
+    
+    <%= form.submit 'Confirmar', class:'btn btn-success' %>
+  
+    </div>
+  
+  <% end %>
