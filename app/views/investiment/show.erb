@@ -50,3 +50,5 @@
     valor minimo:	
     <%= @summary['response']['profitability']['minimum_value'] %>
 </h2>
+
+<%= link_to "Editar", investment_edition_path('invest_id' => @summary['response']['_id']) %>

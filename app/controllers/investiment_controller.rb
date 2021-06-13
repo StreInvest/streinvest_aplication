@@ -5,10 +5,6 @@ class InvestimentController < ApplicationController
 			@message = ''
 	end
 
-	def home
-			@hello = "Bem-vindo a pagina principal"
-	end
-	
 	def index
 			@summarys = @summary_service.index
 	end
@@ -23,6 +19,14 @@ class InvestimentController < ApplicationController
 		get_params(params['post'])
 	end
 
+	def edit
+		@summary_edit = @summary_service.show(params[:invest_id])
+	end
+
+	def update
+    puts params
+  end
+
 	private
 
 	def get_params(params)
@@ -36,8 +40,6 @@ class InvestimentController < ApplicationController
 		else
 			@message = 'deu rium meu rapaz'
 		end
-
-		puts @summary_new
 	end
 
 	def json_parser(params)
@@ -46,7 +48,7 @@ class InvestimentController < ApplicationController
 			"status": params['status'],
 			"risk": params['risco'],
 			"category": params['categoria'],
-			"consortium": "60b03825fcf1440015381f38",
+			"consortium": params['consorcio_id']  || "60b03825fcf1440015381f38",
 			"profitability": {
 				"day": params['dia'],
 				"month": params['mes'],

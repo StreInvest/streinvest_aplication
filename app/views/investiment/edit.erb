@@ -1,0 +1,51 @@
+<h1>ola</h1>
+
+<%= form_with scope: :post, url: '/investment/updated'   do |form| %>
+
+  <div class="field form-group mb-3">
+    <%= form.text_field :invest_id, class:"form-control", value: @summary_edit['response']['_id'], placeholder:"nome do investimento" %>
+  </div>
+
+  <div class="field form-group mb-3">
+    <%= form.text_field :nome, class:"form-control", value: @summary_edit['response']['investment_name'] , placeholder:"nome do investimento" %>
+  </div>
+  <div class="field form-group mb-3">
+    <%= form.text_field :status, class:"form-control",value: @summary_edit['response']['status'], placeholder:"Open ou Close" %>
+  </div>
+  <div class="field form-group mb-3">
+    <%= form.text_field :risco, class:"form-control",value: @summary_edit['response']['risk'], placeholder:"Moderate, Safe e Severe" %>
+  </div>
+  <div class="field form-group mb-3">
+    <%= form.text_field :categoria, class:"form-control",value: @summary_edit['response']['category'], placeholder:"categoria" %>
+  </div>
+  <div class="field form-group mb-3">
+    <%= form.text_field :consorcio_id, class:"form-control",value: @summary_edit['response']['consortium']['_id'], placeholder:"categoria" %>
+  </div>
+  <div class="field form-group mb-3">
+    <%= form.text_field :dia, class:"form-control",value: @summary_edit['response']['profitability']['day'], placeholder:"dia" %>
+  </div>
+  <div class="field form-group mb-3">
+    <%= form.text_field :mes, class:"form-control",value: @summary_edit['response']['profitability']['month'], placeholder:"mes" %>
+  </div>
+  <div class="field form-group mb-3">
+    <%= form.text_field :ano, class:"form-control",value: @summary_edit['response']['profitability']['year'], placeholder:"ano" %>
+  </div>
+  <div class="field form-group mb-3">
+    <%= form.text_field :score, class:"form-control",value: @summary_edit['response']['profitability']['score'], placeholder:"porcentagem de rentabilidade" %>
+  </div>
+  <div class="field form-group mb-3">
+    <%= form.text_field :minimo, class:"form-control",value: @summary_edit['response']['profitability']['minimum_value'], placeholder:"valor minimo" %>
+  </div>
+
+
+  <br />
+    
+  <div class="actions">
+    
+  <%= link_to "ir para investimentos", investiment_index_path %>
+  
+  <%= form.submit 'Confirmar', class:'btn btn-success' %>
+
+  </div>
+
+<% end %>
