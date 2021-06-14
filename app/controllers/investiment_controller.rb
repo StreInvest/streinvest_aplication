@@ -56,9 +56,6 @@ class InvestimentController < ApplicationController
 	def get_params_update(id, params)
 		result = json_parser(params)
 		@summary_update = @summary_service.update(id, result)
-		puts "-----------"
-		puts @summary_update
-		puts "-----------"
 		if @summary_update['status'] == 200 
 			@message = 'deu bom meu rapaz'
 		else
