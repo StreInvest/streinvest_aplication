@@ -1,7 +1,7 @@
 class InvestimentController < ApplicationController
     
 	def initialize
-			@summary_service = GlobalSummary.new
+			@summary_service = GlobalInvestment.new
 			@message = ''
 	end
 
@@ -16,7 +16,7 @@ class InvestimentController < ApplicationController
 	def new;end
 
 	def create
-		get_params(params['post'])
+		get_params_create(params['post'])
 	end
 
 	def edit
@@ -24,18 +24,42 @@ class InvestimentController < ApplicationController
 	end
 
 	def update
-    puts params
+    get_params_update(params['post']['invest_id'], params['post'])
   end
+
+	def destroy
+		@summary_delete = @summary_service.delete(params['invest_id'])
+
+		if @summary_delete['status'] == 404
+			@message = 'usuario já foi excluido'
+		else
+			@message = 'sucesso ao excluir'
+		end
+	end
 
 	private
 
-	def get_params(params)
+	def get_params_create(params)
 
 		result = json_parser(params)
 
 		@summary_new = @summary_service.create(result)
 	
 		if @summary_new['status'] == 201
+			@message = 'deu bom meu rapaz'
+		else
+			@message = 'deu rium meu rapaz'
+		end
+	end
+
+
+	def get_params_update(id, params)
+		result = json_parser(params)
+		@summary_update = @summary_service.update(id, result)
+		puts "-----------"
+		puts @summary_update
+		puts "-----------"
+		if @summary_update['status'] == 200 
 			@message = 'deu bom meu rapaz'
 		else
 			@message = 'deu rium meu rapaz'

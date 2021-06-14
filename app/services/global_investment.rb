@@ -1,4 +1,4 @@
-class GlobalSummary
+class GlobalInvestment
   require 'json'
   include HTTParty
   
@@ -20,5 +20,13 @@ class GlobalSummary
 
   def create(params)
     self.class.post("/investment/#{@token}", :body => params.to_json,  :headers => { 'Content-Type' => 'application/json' } )
+  end
+
+  def update(id, params)
+    self.class.put("/investment/#{@token}/#{id}", :body => params.to_json,  :headers => { 'Content-Type' => 'application/json' } )
+  end
+
+  def delete(id)
+    self.class.delete("/investment/#{@token}/#{id}")
   end
 end

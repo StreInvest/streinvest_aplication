@@ -52,3 +52,7 @@
 </h2>
 
 <%= link_to "Editar", investment_edition_path('invest_id' => @summary['response']['_id']) %>
+<br/>
+<%= link_to "excluir", investment_destroy_path('invest_id' => @summary['response']['_id']) %>
+<br/>
+<%= link_to "ir para investimentos", investiment_index_path %>
