@@ -13,6 +13,9 @@ class GlobalConsortium
   def index
     self.class.get("/consortium/#{@token}/", @options)
   end
+  def show(id)
+    self.class.get("/consortium/#{@token}/#{id}", @options)
+  end
 
   def create(params)
     self.class.post("/consortium/#{@token}", :body => params.to_json,  :headers => { 'Content-Type' => 'application/json' } )
