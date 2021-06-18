@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-	def home
-        @hello = "Bem-vindo a pagina principal"
-    end
+  def home
+    @title = 'Bem-vindo ao streInvest'
+    @description = 'Disponibilizamos a melhor API sobre consulta de'
+  end
 end
