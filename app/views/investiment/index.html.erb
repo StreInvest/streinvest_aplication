@@ -1,68 +1,103 @@
-<html>
-	<body>
-	<%= link_to "voltar home", root_path %>
-	<br/>
-	<%= link_to "criar investimentos", new_investiment_path %>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-		<h1>Listagem de investimento</h1>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
 
-		<% @summarys['response'].each do |summary| %>
-		<h2 style="color: #000;">	
-			ID:
-			<%= summary['_id'] %>
-		</h2>
-		<h2 style="color: #000;">
-			nome do investimento: 
-			<%= summary['investment_name'] %>
-		</h2>
-		<h2 style="color: #000;">
-			status:
-			<%= summary['status'] %>
-		</h2>
-		<h2 style="color: #000;">
-			risco:	
-			<%= summary['risk'] %>
-		</h2>
-		<h2 style="color: #000;">
-			categoria:
-			<%= summary['category'] %>
-		</h2>
-		<h2 style="color: #000;">
-			create:	
-			<%= summary['created_at'] %>
-		</h2>
-		<h2 style="color: #000;">	
-			update:
-			<%= summary['updated_at'] %>
-		</h2>
-		<h2 style="color: #000;">
-			nome do consorcio emissor:	
-			<%= summary['consortium']['consortium_name'] %>
-		</h2>
-		<h2 style="color: #000;">
-			dia:	
-			<%= summary['profitability']['day'] %>
-		</h2>
-		<h2 style="color: #000;">
-			mes:	
-			<%= summary['profitability']['month'] %>
-		</h2>
-		<h2 style="color: #000;">
-			ano:	
-			<%= summary['profitability']['year'] %>
-		</h2>
-		<h2 style="color: #000;">
-			score:	
-			<%= summary['profitability']['score'] %>
-		</h2>
-		<h2 style="color: #000;">
-			valor minimo:	
-			<%= summary['profitability']['minimum_value'] %>
-		</h2>
+	<!-- Bootstrap CDN-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+		integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+		integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+		crossorigin="anonymous"></script>
+	<%= stylesheet_link_tag 'investiment' , media: 'all' %>
+</head>
 
-		<%= link_to "Visualizar", investment_specific_path('invest_id' => summary['_id']) %>
+<body>
+	<div class="container">
+		<div class="cardin">
+			<h1>Listagem de investimento</h1>
+			<%= link_to "voltar home" , root_path, class: 'btn btn-dark' %>
+				<%= link_to "criar investimentos" , new_investiment_path, class: 'btn btn-success' %>
+		</div>
 
-		<hr/>
-		<% end %>
-	</body>
+		<div class="cardin">
+			<section class="tecnologia">
+				<div class="box-linguagem ">
+					<div class="box-linguagem-icon">
+						<% @summarys['response'].each do |summary| %>
+							<div class="box-flex-icon">
+								<%= link_to investment_specific_path('invest_id'=> summary['_id']), class: 'link_estilizado' do %>
+									<div>
+										<% if summary['risk']=='Safe' %>
+											<div *ngIf="inves.risk === 'Safe'" class="category" style="background-color: green;">
+												<h4>
+													<%= summary['category'] %>
+												</h4>
+											</div>
+											<% end %>
+												<% if summary['risk']=='Moderate' %>
+													<div class="category" style="background-color: yellow; color: black;">
+														<h4>
+															<%= summary['category'] %>
+														</h4>
+													</div>
+													<% end %>
+														<% if summary['risk']=='Severe' %>
+															<div class="category" style="background-color: red;">
+																<h4>
+																	<%= summary['category'] %>
+																</h4>
+															</div>
+															<% end %>
+																<div class="header-mat mat-elevation-z2 elevation-z8">
+																	<h2>
+																		<%= summary['investment_name'] %>
+																	</h2>
+																</div>
+																<div class="bodyCard">
+																	<div class="rent_dia">
+																		<h4>Rentabilidade anual</h4>
+																		<h6>
+																			R$ <%= summary['profitability']['day'] %>
+																		</h6>
+																	</div>
+																	<span>Valor minimo: R$ <%= summary['profitability']['minimum_value'] %></span>
+																	<div class="atualiza">
+																		<span class="atualiza_title">Última atualização:</span>
+																		<span class="atualiza_value">
+																			<%= summary['updated_at'] %>
+																		</span>
+																	</div>
+																</div>
+									</div>
+									<% if summary['status']=='Open' %>
+										<div class="categoryRodape" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+											<%= summary['consortium']['consortium_name'] %>
+										</div>
+										<%end%>
+											<% if summary['status']=='Close' %>
+												<div class="categoryRodape" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">
+													<%= summary['consortium']['consortium_name'] %>
+												</div>
+												<%end%>
+													<% end %>
+							</div>
+							<% end %>
+					</div>
+				</div>
+			</section>
+		</div>
+</body>
+
 </html>
