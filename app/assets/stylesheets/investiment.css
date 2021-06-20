@@ -4,6 +4,7 @@
   padding: 10px 0;
   margin: 50px 0;
   border-radius: 5px;
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .btn{
@@ -31,7 +32,7 @@
 .tecnologia{
   width: 100%;
   overflow: hidden;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
 .box-linguagem{
   width: 100%;
@@ -130,16 +131,16 @@ h2{
   justify-content: flex-end;
   gap: 10px;
 }
-/* .container{
+.container-indicativo{
  background-color: #eee;
  width: 100px; 
  padding: 2px 5px;
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.container h5 {
+.container-indicativo h5 {
   font-size: 12px;
   font-weight: 600;
-} */
+}
 i{
   background-color: black;
   border-radius: 50%;
@@ -192,7 +193,7 @@ i{
 }
 .indicativo{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .div-select h2{
   text-align: left;
@@ -217,6 +218,7 @@ i{
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   color: #fff;
+  margin-left: -10px;
 }
 #sub:hover{
   cursor: pointer;
@@ -259,3 +261,95 @@ input:focus {
   text-decoration: none !important;
   color: #000;
 }
+.pagination_bots{
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1280px) {
+  .indicativo{
+    display: inline;
+  }
+  .linformativo{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .input {
+    display: inline;
+    /* justify-content: right;
+    margin-left: 20px; */
+  }
+  input{
+    width: 98%;
+    
+  }
+  #appearance-select{
+    width: 99%;
+    appearance: none;
+    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #fffdfd ;
+    background-position: 100% center;
+    height:30px;
+    border:1px solid #ddd;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    padding: 5px;
+  }
+  .search h2{
+    margin-left: 5px;
+  }
+}
+@media (max-width: 992px){
+  input{
+    width: 95%;
+  }
+  #appearance-select{
+    width: 98%;
+    appearance: none;
+    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #fffdfd ;
+    background-position: 100% center;
+    height:30px;
+    border:1px solid #ddd;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 390px){
+  input{
+    width: 90%;
+  }
+  #appearance-select{
+    width: 95%;
+    appearance: none;
+    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #fffdfd ;
+    background-position: 100% center;
+    height:30px;
+    border:1px solid #ddd;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 992px){
+  input{
+    width: 85%;
+  }
+  #appearance-select{
+    width: 90%;
+    appearance: none;
+    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #fffdfd ;
+    background-position: 100% center;
+    height:30px;
+    border:1px solid #ddd;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    padding: 5px;
+  }
+}
+

@@ -32,6 +32,83 @@
 		</div>
 
 		<div class="cardin">
+			<div class="indicativo">
+				<div class="linformativo">
+					<div class="container-indicativo">
+						<h5>Risco</h5>
+						<div>
+							<span>
+								Baixo
+								<i style="background-color: green; color: green;">....</i>
+							</span>
+							<span>
+								Médio
+								<i style="background-color: yellow; color: yellow;">....</i>
+							</span>
+							<span>
+								Alto
+								<i style="background-color: red; color: red;">....</i>
+							</span>
+						</div>
+					</div>
+					<div class="container-indicativo">
+						<h5>Status</h5>
+						<div>
+							<span>
+								Fechado
+								<i style="background-color: rgb(2, 2, 2); color: rgb(0, 0, 0);">....</i>
+							</span>
+							<span>
+								Aberto
+								<i style="background-color: rgb(255, 255, 255); color: rgb(255, 255, 255);">....</i>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="input">
+					<div class="search">
+						<h2 style="text-align: left;">Ordernação</h2>
+						<div>
+							<select name="consortium" id="appearance-select">
+								<option value="teste">Selecione</option>
+								<option value="ASC">Crescente</option>
+								<option value="DESC">Decrescente</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="input">
+					<div class="search">
+						<h2 style="text-align: left;">Categoria</h2>
+						<div>
+							<input type="search" #box1 placeholder="EX: CDB" name="category" id="category">
+							<button id="sub" type="submit">
+								>
+							</button>
+						</div>
+					</div>
+
+					<div class="input">
+						<div class="search">
+							<h2 style="text-align: left;">Consócios</h2>
+							<div>
+								<select name="consortium" id="appearance-select">
+									<option value="teste">Selecione</option>
+									<option value="teste">teste</option>
+									<option value="teste">teste</option>
+									<option value="teste">teste</option>
+									<option value="teste">teste</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="cardin">
 			<section class="tecnologia">
 				<div class="box-linguagem ">
 					<div class="box-linguagem-icon">
@@ -97,7 +174,21 @@
 					</div>
 				</div>
 			</section>
+
 		</div>
+		<div class="cardin">
+			<nav class="pagination_bots" aria-label="Page navigation example">
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+			</nav>
+		</div>
+
+
 </body>
 
 </html>
