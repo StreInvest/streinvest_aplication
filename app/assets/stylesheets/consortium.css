@@ -14,3 +14,7 @@
 .btn:hover{
   opacity: 0.7;
 }
+.pagination_bots{
+  display: flex;
+  justify-content: center;
+}
