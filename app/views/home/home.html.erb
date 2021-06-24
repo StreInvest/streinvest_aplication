@@ -19,6 +19,7 @@
       </p>
       <%= link_to "ir para investimentos" , investiment_index_path, class:'btn btn-dark' %>
         <%= link_to "ir para consorcios" , consortium_index_path, class:'btn btn-dark' %>
+          <%= link_to "Logout" , destroy_user_session_path, :method=> :delete, class:'btn btn-danger' %>
     </div>
     <div class="interativo">
       <%= image_tag("home2.svg", :alt=> "streinvest api", class:'image') %>
